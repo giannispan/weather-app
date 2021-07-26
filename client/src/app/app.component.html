@@ -1,0 +1,18 @@
+<div class="h-100">
+	<app-header [title]="'Weather App'"></app-header>
+	<div class="mt-4">
+		<app-dropdown-menu
+			[listOfItems]="listOfCities"
+			(selectItem)="addCity($event)"
+		></app-dropdown-menu>
+	</div>
+	<div *ngIf="selectedCities.length" class="mt-4">
+		<app-dashboard
+			[selectedItems]="selectedCities"
+			[buttonName]="'Temperature Check'"
+			[isButtonDisabled]="isButtonDisabled"
+			(removeItemFromDashboard)="removeCity($event)"
+			(fetchTempData)="fetchData()"
+		></app-dashboard>
+	</div>
+</div>

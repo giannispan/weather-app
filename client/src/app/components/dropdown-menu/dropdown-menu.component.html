@@ -1,0 +1,12 @@
+<div>
+	<select
+		class="form-control col-md-2"
+		[(ngModel)]="selectedItem"
+		(change)="onChange(selectedItem)"
+	>
+		<option [ngValue]="selectedItem" disabled>Select a city</option>
+		<option *ngFor="let item of listOfItems | sortBy: 'name'" [ngValue]="item">
+			{{item.name}}
+		</option>
+	</select>
+</div>
